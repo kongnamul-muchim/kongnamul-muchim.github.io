@@ -269,21 +269,15 @@ Add demo URL:
 demo: https://rlaehdduf.github.io/ShotUp
 ```
 
-- [ ] **Step 5: Update gamedevtoolkit.md**
+- [ ] **Step 5: Verify gamedevtoolkit.md**
 
-No demo (Unity Package):
+Verify file has no `demo` field (Unity Package, not executable).
+No changes needed.
 
-```yaml
-# No demo field (package, not executable)
-```
+- [ ] **Step 6: Verify testwebpage.md**
 
-- [ ] **Step 6: Update testwebpage.md**
-
-No demo (Express.js server):
-
-```yaml
-# No demo field (server required)
-```
+Verify file has no `demo` field (Express.js server).
+No changes needed.
 
 - [ ] **Step 7: Update webmake.md**
 
@@ -293,13 +287,10 @@ Add demo URL for community-board:
 demo: https://rlaehdduf.github.io/community-board
 ```
 
-- [ ] **Step 8: Update test0330.md, testwebtext.md**
+- [ ] **Step 8: Verify test0330.md, testwebtext.md**
 
-No demo (non-web projects):
-
-```yaml
-# No demo field
-```
+Verify files have no `demo` field (non-web projects).
+No changes needed.
 
 - [ ] **Step 9: Commit**
 
@@ -317,12 +308,17 @@ git commit -m "content: add demo URLs to project content files"
 
 **User Action Required:** Create GitHub repo `rlaehdduf/portfolio` on GitHub web UI
 
-- [ ] **Step 1: Add remote URL (after user creates repo)**
+- [ ] **Step 1: Check existing remotes**
+
+Run: `git remote -v`
+Expected: Empty or no origin
+
+- [ ] **Step 2: Add remote URL (after user creates repo)**
 
 Run: `git remote add origin https://github.com/rlaehdduf/portfolio.git`
 Expected: Remote added successfully
 
-- [ ] **Step 2: Verify remote**
+- [ ] **Step 3: Verify remote**
 
 Run: `git remote -v`
 Expected: Shows origin URL
