@@ -26,6 +26,7 @@ const otherProjects = projects.filter(p => !p.data.featured);
             technologies={project.data.technologies}
             slug={project.id}
             featured={project.data.featured}
+            devPeriod={project.data.devPeriod}
           />
         ))}
       </div>
@@ -35,16 +36,17 @@ const otherProjects = projects.filter(p => !p.data.featured);
   <section class="section">
     <h2>All Projects</h2>
     <div class="grid">
-      {otherProjects.map((project) => (
-        <ProjectCard
-          title={project.data.title}
-          description={project.data.description}
-          image={project.data.image}
-          technologies={project.data.technologies}
-          slug={project.id}
-          featured={project.data.featured}
-        />
-      ))}
+        {otherProjects.map((project) => (
+          <ProjectCard
+            title={project.data.title}
+            description={project.data.description}
+            image={project.data.image}
+            technologies={project.data.technologies}
+            slug={project.id}
+            featured={project.data.featured}
+            devPeriod={project.data.devPeriod}
+          />
+        ))}
     </div>
   </section>
 </BaseLayout>
