@@ -11,6 +11,7 @@ technologies:
 github: https://github.com/rlaehdduf/DefenceGame
 demo: https://rlaehdduf.github.io/DefenceGame
 featured: true
+devPeriod: 2026-03-09 ~ 2026-03-12
 ---
 
 ## 게임 개요

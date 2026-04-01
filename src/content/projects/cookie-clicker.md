@@ -10,6 +10,7 @@ technologies:
   - express-session
 github: https://github.com/rlaehdduf/CookieClicker
 featured: false
+devPeriod: 2026-03-30 ~ 2026-03-31
 ---
 
 ## 게임 개요

@@ -11,6 +11,7 @@ technologies:
   - NextAuth
 github: https://github.com/rlaehdduf/CommunityBoard
 featured: false
+devPeriod: 2026-03-30
 ---
 
 ## 프로젝트 개요

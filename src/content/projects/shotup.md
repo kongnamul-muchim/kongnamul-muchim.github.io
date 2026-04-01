@@ -11,6 +11,7 @@ technologies:
 github: https://github.com/rlaehdduf/ShotUp
 demo: https://rlaehdduf.github.io/ShotUp
 featured: false
+devPeriod: 2026-03-09 ~ 2026-03-10
 ---
 
 ## 게임 개요

@@ -10,6 +10,7 @@ technologies:
   - Modular Design
 github: https://github.com/rlaehdduf/GameDevToolkit
 featured: true
+devPeriod: 2026-03-26
 ---
 
 ## 패키지 개요

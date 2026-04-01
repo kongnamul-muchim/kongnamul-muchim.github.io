@@ -10,6 +10,7 @@ technologies:
   - Event-driven Design
 github: https://github.com/rlaehdduf/KirdiaSimulator
 featured: false
+devPeriod: 2026-03-30
 ---
 
 ## 프로젝트 개요

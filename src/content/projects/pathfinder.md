@@ -11,6 +11,7 @@ technologies:
 github: https://github.com/rlaehdduf/Pathfinder
 demo: https://rlaehdduf.github.io/Pathfinder
 featured: false
+devPeriod: 2026-03-16 ~ 2026-03-19
 ---
 
 ## 프로젝트 개요
