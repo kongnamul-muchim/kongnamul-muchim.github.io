@@ -84,17 +84,26 @@ const displayImage = hasRealImage ? project.data.image : defaultImage;
 
   header {
     margin-bottom: 2rem;
+    padding: 2rem;
+    background: linear-gradient(145deg, rgba(80, 82, 85, 0.8) 0%, rgba(55, 57, 60, 0.9) 100%);
+    border: 1px solid rgba(90, 93, 96, 0.4);
+    border-top: 1px solid rgba(110, 113, 116, 0.5);
+    border-left: 1px solid rgba(110, 113, 116, 0.5);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
   }
 
   h1 {
     font-size: 2rem;
     margin-bottom: 0.75rem;
+    color: #ffffff;
   }
 
   .description {
     color: var(--text-muted);
     font-size: 1.125rem;
     margin-bottom: 1rem;
+    line-height: 1.6;
   }
 
   .dev-period {
@@ -110,6 +119,7 @@ const displayImage = hasRealImage ? project.data.image : defaultImage;
     display: flex;
     gap: 0.5rem;
     flex-wrap: wrap;
+    margin-top: 1rem;
   }
 
   .project-image {
