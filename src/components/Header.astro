@@ -108,9 +108,9 @@ const pathname = Astro.url.pathname;
   }
 
   .filter-menu {
-    position: fixed;
-    top: 80px;
-    right: -350px;
+    position: absolute;
+    top: 100%;
+    right: 20px;
     width: 340px;
     background: linear-gradient(180deg, rgba(50, 52, 55, 0.98) 0%, rgba(40, 42, 45, 0.95) 100%);
     border: 1px solid rgba(90, 93, 96, 0.5);
@@ -119,15 +119,20 @@ const pathname = Astro.url.pathname;
     box-shadow: 
       0 10px 40px rgba(0, 0, 0, 0.5),
       0 0 60px rgba(0, 0, 0, 0.3);
-    transition: right 0.3s ease;
-    z-index: 9999;
+    transition: right 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
     max-height: calc(100vh - 120px);
     overflow-y: auto;
     backdrop-filter: blur(15px);
+    opacity: 0;
+    transform: translateX(50px);
+    pointer-events: none;
   }
 
   .filter-menu.open {
-    right: 20px;
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
   }
 
   .filter-header {
