@@ -85,8 +85,9 @@ const pathname = Astro.url.pathname;
     background: none;
     border: none;
     cursor: pointer;
-    padding: 5px;
-    z-index: 101;
+    padding: 8px;
+    z-index: 102;
+    position: relative;
   }
 
   .menu-toggle span {
@@ -246,7 +247,7 @@ const pathname = Astro.url.pathname;
     });
   });
 
-  function updateFilters(types: string[]) {
+  function updateFilters(types) {
     const cards = document.querySelectorAll('.project-card');
     cards.forEach(card => {
       const projectType = card.getAttribute('data-type');
