@@ -8,7 +8,7 @@ technologies:
   - C#
   - Unity Package
   - Modular Design
-github: https://github.com/yourusername/GameDevToolkit
+github: https://github.com/rlaehdduf/GameDevToolkit
 featured: true
 ---
 

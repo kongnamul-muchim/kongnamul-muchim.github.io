@@ -9,6 +9,7 @@ technologies:
   - AI Agent System
   - Role-play
 github: https://github.com/rlaehdduf/KirdiaSimulator
+demo: https://rlaehdduf.github.io/KirdiaSimulator
 featured: false
 ---
 
