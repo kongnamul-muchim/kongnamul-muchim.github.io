@@ -1,14 +1,5 @@
 ---
 const pathname = Astro.url.pathname;
-
-// 프로젝트 타입별 그룹화 (동적으로 생성)
-const projectTypes = [
-  { value: 'unity', label: 'Unity', icon: '🎮' },
-  { value: 'web', label: 'Web', icon: '🌐' },
-  { value: 'package', label: 'Package', icon: '📦' },
-  { value: 'server', label: 'Server', icon: '🖥️' },
-  { value: 'docs', label: 'Docs', icon: '📄' },
-];
 ---
 
 <header>
@@ -195,6 +186,7 @@ const projectTypes = [
     background: rgba(70, 72, 75, 0.3);
     border-radius: 6px;
     text-align: center;
+    line-height: 1.4;
   }
 
   .project-tree {
@@ -230,6 +222,7 @@ const projectTypes = [
     transition: transform 0.3s ease;
     width: 16px;
     text-align: center;
+    flex-shrink: 0;
   }
 
   .tree-folder-arrow.expanded {
@@ -238,6 +231,7 @@ const projectTypes = [
 
   .tree-folder-icon {
     font-size: 1.125rem;
+    flex-shrink: 0;
   }
 
   .tree-folder-label {
@@ -245,6 +239,9 @@ const projectTypes = [
     color: #e5e7eb;
     font-size: 0.9rem;
     font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .tree-folder-count {
@@ -254,6 +251,7 @@ const projectTypes = [
     padding: 0.125rem 0.5rem;
     border-radius: 10px;
     border: 1px solid rgba(100, 103, 106, 0.3);
+    flex-shrink: 0;
   }
 
   .tree-children {
@@ -264,7 +262,7 @@ const projectTypes = [
   }
 
   .tree-children.expanded {
-    max-height: 500px;
+    max-height: 600px;
     border-top: 1px solid rgba(90, 93, 96, 0.3);
   }
 
@@ -287,12 +285,16 @@ const projectTypes = [
 
   .tree-item-icon {
     font-size: 0.875rem;
+    flex-shrink: 0;
   }
 
   .tree-item-label {
     color: #e5e7eb;
     font-size: 0.85rem;
     flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .tree-item-type {
@@ -301,6 +303,8 @@ const projectTypes = [
     background: rgba(70, 72, 75, 0.5);
     padding: 0.125rem 0.5rem;
     border-radius: 6px;
+    border: 1px solid rgba(100, 103, 106, 0.3);
+    flex-shrink: 0;
   }
 </style>
 
@@ -310,7 +314,7 @@ const projectTypes = [
   const closeBtn = document.getElementById('closeBtn');
   const projectTree = document.getElementById('projectTree');
 
-  // 프로젝트 데이터 (하드코딩 - 실제 프로젝트에 맞게 수정)
+  // 프로젝트 데이터
   const projects = [
     { slug: 'defencegame', title: 'DefenceGame', type: 'unity', icon: '🎯' },
     { slug: 'greeddungeon', title: 'GreedDungeon', type: 'unity', icon: '⚔️' },
@@ -394,16 +398,21 @@ const projectTypes = [
       header.addEventListener('click', function() {
         const isExpanded = children.classList.contains('expanded');
         
-        // 다른 폴더들은 닫기 (원하면 이 부분 제거)
-        if (!isExpanded) {
+        // 현재 폴더 토글
+        if (isExpanded) {
+          // 접기
+          children.classList.remove('expanded');
+          arrow.classList.remove('expanded');
+        } else {
+          // 다른 폴더들은 닫기
           document.querySelectorAll('.tree-children.expanded').forEach(el => {
             el.classList.remove('expanded');
             el.previousElementSibling.querySelector('.tree-folder-arrow').classList.remove('expanded');
           });
+          // 현재 폴더 펼치기
+          children.classList.add('expanded');
+          arrow.classList.add('expanded');
         }
-
-        children.classList.toggle('expanded');
-        arrow.classList.toggle('expanded');
       });
     });
   }
