@@ -47,6 +47,7 @@ const displayImage = hasRealImage ? image : defaultImage;
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     backdrop-filter: blur(10px);
+    will-change: transform, box-shadow;
     box-shadow: 
       12px 12px 24px rgba(0, 0, 0, 0.5),
       8px 8px 40px rgba(0, 0, 0, 0.4),
