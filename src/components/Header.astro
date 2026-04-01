@@ -358,6 +358,18 @@ const pathname = Astro.url.pathname;
       }
     });
 
+    // 스크롤 시 메뉴 닫기
+    let scrollTimeout;
+    window.addEventListener('scroll', function() {
+      if (filterMenu.classList.contains('open')) {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(function() {
+          filterMenu.classList.remove('open');
+          menuToggle.classList.remove('active');
+        }, 100);
+      }
+    }, { passive: true });
+
     filterMenu.addEventListener('click', function(e) {
       e.stopPropagation();
     });
