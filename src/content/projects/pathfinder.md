@@ -1,7 +1,7 @@
 ---
 title: Pathfinder
 type: unity
-description: 메트로바니아 2D 플랫포머. 능력 구체 획득으로 백트래킹, 즉사 함정, DI Container.
+description: 메트로바니아 2D 플랫포머. 능력 해금으로 백트래킹, 즉사 함정, DI Container.
 image: /images/pathfinder.png
 technologies:
   - Unity
@@ -22,7 +22,7 @@ featured: false
 | 요소 | 설명 |
 |------|------|
 | **즉사 시스템** | 함정/적 접촉 시 즉시 사망 (HP 없음) |
-| **능력 해금** | 4 개 맵의 구체 획득으로 능력 추가 |
+| **능력 해금** | 4 개 맵의 능력 획득으로 추가 |
 | **백트래킹** | 이전 맵으로 돌아가 새 구역 탐색 |
 | **포탈 시스템** | 맵 간 이동 |
 
