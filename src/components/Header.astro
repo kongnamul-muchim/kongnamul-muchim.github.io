@@ -4,32 +4,257 @@ const pathname = Astro.url.pathname;
 
 <header>
   <nav>
-    <a href="/" class:list={['nav-link', { active: pathname === '/' }]}>
+    <a href="/" class="nav-link">
       Portfolio
     </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </nav>
+  
+  <div class="filter-menu" id="filterMenu">
+    <div class="filter-header">
+      <h3>🔍 필터</h3>
+      <button class="close-btn" id="closeBtn" aria-label="Close menu">&times;</button>
+    </div>
+    <div class="filter-options">
+      <label class="filter-option">
+        <input type="checkbox" value="all" checked>
+        <span>All</span>
+      </label>
+      <label class="filter-option">
+        <input type="checkbox" value="unity">
+        <span>Unity</span>
+      </label>
+      <label class="filter-option">
+        <input type="checkbox" value="web">
+        <span>Web</span>
+      </label>
+      <label class="filter-option">
+        <input type="checkbox" value="package">
+        <span>Package</span>
+      </label>
+      <label class="filter-option">
+        <input type="checkbox" value="server">
+        <span>Server</span>
+      </label>
+      <label class="filter-option">
+        <input type="checkbox" value="docs">
+        <span>Docs</span>
+      </label>
+    </div>
+  </div>
 </header>
 
 <style>
   header {
     padding: 1rem 2rem;
-    background: var(--card-bg);
+    background: rgba(30, 41, 59, 0.95);
+    backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
   }
 
   nav {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
   .nav-link {
     font-size: 1.5rem;
     font-weight: bold;
     color: var(--text);
+    text-decoration: none;
   }
 
   .nav-link:hover {
     color: var(--primary);
-    text-decoration: none;
+  }
+
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 101;
+  }
+
+  .menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .menu-toggle:hover span {
+    background: var(--primary);
+  }
+
+  .menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+  }
+
+  .filter-menu {
+    position: fixed;
+    top: 70px;
+    right: -300px;
+    width: 280px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    transition: right 0.3s ease;
+    z-index: 100;
+  }
+
+  .filter-menu.open {
+    right: 2rem;
+  }
+
+  .filter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .filter-header h3 {
+    color: var(--text);
+    font-size: 1.125rem;
+    margin: 0;
+  }
+
+  .close-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+  }
+
+  .close-btn:hover {
+    color: var(--text);
+  }
+
+  .filter-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .filter-option {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 6px;
+    transition: background 0.2s;
+  }
+
+  .filter-option:hover {
+    background: var(--border);
+  }
+
+  .filter-option input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary);
+    cursor: pointer;
+  }
+
+  .filter-option span {
+    color: var(--text);
+    font-size: 0.95rem;
   }
 </style>
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const filterMenu = document.getElementById('filterMenu');
+  const closeBtn = document.getElementById('closeBtn');
+  const checkboxes = filterMenu.querySelectorAll('input[type="checkbox"]');
+  const allCheckbox = checkboxes[0];
+  const typeCheckboxes = checkboxes.slice(1);
+
+  function toggleMenu() {
+    menuToggle.classList.toggle('active');
+    filterMenu.classList.toggle('open');
+  }
+
+  menuToggle.addEventListener('click', toggleMenu);
+  closeBtn.addEventListener('click', toggleMenu);
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!filterMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+      filterMenu.classList.remove('open');
+      menuToggle.classList.remove('active');
+    }
+  });
+
+  // Handle checkbox logic
+  allCheckbox.addEventListener('change', () => {
+    if (allCheckbox.checked) {
+      typeCheckboxes.forEach(cb => cb.checked = false);
+      updateFilters(['all']);
+    } else {
+      allCheckbox.checked = true;
+    }
+  });
+
+  typeCheckboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', () => {
+      if (checkbox.checked) {
+        allCheckbox.checked = false;
+      }
+      
+      const selectedTypes = Array.from(typeCheckboxes)
+        .filter(cb => cb.checked)
+        .map(cb => cb.value);
+      
+      if (selectedTypes.length === 0) {
+        allCheckbox.checked = true;
+        updateFilters(['all']);
+      } else {
+        updateFilters(selectedTypes);
+      }
+    });
+  });
+
+  function updateFilters(types: string[]) {
+    const cards = document.querySelectorAll('.project-card');
+    cards.forEach(card => {
+      const projectType = card.getAttribute('data-type');
+      if (types.includes('all') || types.includes(projectType)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+</script>

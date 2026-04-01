@@ -9,9 +9,10 @@ interface Props {
   slug: string;
   featured?: boolean;
   devPeriod?: string;
+  type?: string;
 }
 
-const { title, description, image, technologies, slug, featured, devPeriod } = Astro.props;
+const { title, description, image, technologies, slug, featured, devPeriod, type } = Astro.props;
 
 // 이미지가 없거나 placeholder 면 default 이미지 사용
 const defaultImage = '/images/defult.jpeg';
@@ -19,7 +20,7 @@ const hasRealImage = image && image !== '/images/placeholder.svg' && image !== d
 const displayImage = hasRealImage ? image : defaultImage;
 ---
 
-<a href={`/projects/${slug}`} class="project-card" data-featured={featured}>
+<a href={`/projects/${slug}`} class="project-card" data-featured={featured} data-type={type}>
   <div class="card-image">
     <img src={displayImage} alt={title} loading="lazy" />
   </div>

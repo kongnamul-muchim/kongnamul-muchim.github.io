@@ -27,6 +27,7 @@ const otherProjects = projects.filter(p => !p.data.featured);
             slug={project.id}
             featured={project.data.featured}
             devPeriod={project.data.devPeriod}
+            type={project.data.type}
           />
         ))}
       </div>
@@ -45,6 +46,7 @@ const otherProjects = projects.filter(p => !p.data.featured);
             slug={project.id}
             featured={project.data.featured}
             devPeriod={project.data.devPeriod}
+            type={project.data.type}
           />
         ))}
     </div>
