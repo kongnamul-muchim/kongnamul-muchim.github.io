@@ -126,10 +126,13 @@ const displayImage = hasRealImage ? project.data.image : defaultImage;
 
   .project-image {
     width: 100%;
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
     margin-bottom: 2rem;
-    background: var(--card-bg);
+    background: linear-gradient(145deg, rgba(70, 72, 75, 0.6) 0%, rgba(50, 52, 55, 0.7) 100%);
+    border: 1px solid rgba(90, 93, 96, 0.3);
+    border-top: 1px solid rgba(110, 113, 116, 0.4);
+    border-left: 1px solid rgba(110, 113, 116, 0.4);
   }
 
   .project-image img {
@@ -138,9 +141,12 @@ const displayImage = hasRealImage ? project.data.image : defaultImage;
   }
 
   .content {
-    background: var(--card-bg);
+    background: linear-gradient(145deg, rgba(70, 72, 75, 0.6) 0%, rgba(50, 52, 55, 0.7) 100%);
+    border: 1px solid rgba(90, 93, 96, 0.3);
+    border-top: 1px solid rgba(110, 113, 116, 0.4);
+    border-left: 1px solid rgba(110, 113, 116, 0.4);
     padding: 1.5rem;
-    border-radius: 8px;
+    border-radius: 12px;
     margin-bottom: 2rem;
   }
 
@@ -153,19 +159,36 @@ const displayImage = hasRealImage ? project.data.image : defaultImage;
   .link-button {
     display: inline-block;
     padding: 0.75rem 1.5rem;
-    background: var(--primary);
-    color: white;
-    border-radius: 6px;
+    background: linear-gradient(145deg, rgba(100, 103, 106, 0.9) 0%, rgba(70, 73, 76, 0.95) 100%);
+    border: 1px solid rgba(120, 123, 126, 0.5);
+    border-top: 1px solid rgba(140, 143, 146, 0.6);
+    border-left: 1px solid rgba(140, 143, 146, 0.6);
+    color: #e5e7eb;
+    border-radius: 8px;
     font-weight: 500;
+    transition: all 0.2s ease;
+    text-decoration: none;
   }
 
   .link-button:hover {
+    background: linear-gradient(145deg, rgba(110, 113, 116, 0.95) 0%, rgba(80, 83, 86, 0.98) 100%);
+    border-color: rgba(130, 133, 136, 0.6);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     text-decoration: none;
-    opacity: 0.9;
   }
 
   .link-button.demo {
-    background: #10b981;
+    background: linear-gradient(145deg, rgba(50, 90, 70, 0.9) 0%, rgba(30, 70, 50, 0.95) 100%);
+    border: 1px solid rgba(70, 110, 90, 0.5);
+    border-top: 1px solid rgba(90, 130, 110, 0.6);
+    border-left: 1px solid rgba(90, 130, 110, 0.6);
+    color: #b8e0d0;
+  }
+
+  .link-button.demo:hover {
+    background: linear-gradient(145deg, rgba(60, 100, 80, 0.95) 0%, rgba(40, 80, 60, 0.98) 100%);
+    border-color: rgba(80, 120, 100, 0.6);
   }
 
   .demo-frame {
@@ -174,12 +197,14 @@ const displayImage = hasRealImage ? project.data.image : defaultImage;
 
   .demo-frame h2 {
     margin-bottom: 1rem;
+    color: #e5e7eb;
   }
 
   .demo-frame iframe {
     width: 100%;
     height: 500px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
+    border: 1px solid rgba(90, 93, 96, 0.4);
+    border-radius: 12px;
+    background: linear-gradient(145deg, rgba(70, 72, 75, 0.6) 0%, rgba(50, 52, 55, 0.7) 100%);
   }
 </style>
