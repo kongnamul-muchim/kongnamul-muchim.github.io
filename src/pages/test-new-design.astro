@@ -73,6 +73,48 @@ const projects = [
       </div>
     </section>
 
+    <!-- 프로젝트 상세 페이지 샘플 -->
+    <section class="detail-section">
+      <h2>📄 Project Detail Page</h2>
+      <p class="hint">카드를 눌렀을 때 보이는 상세 페이지 미리보기.</p>
+      
+      <article class="project-detail">
+        <a href="#" class="back-link">← Back to Projects</a>
+
+        <div class="detail-header">
+          <h1>DefenceGame</h1>
+          <p class="detail-desc">타워 디펜스 게임. 4 종 타워 (궁수/마법사/레이저/메이지타워) 배치, 레벨업, 특수 능력 해금 시스템.</p>
+          <p class="dev-period">📅 2026-03-09 ~ 2026-03-12</p>
+          <div class="tech-stack">
+            {['Unity', 'C#', 'Tower Defense', 'Special Ability System'].map((t) => <TechBadgeNew name={t} />)}
+          </div>
+        </div>
+
+        <div class="detail-image">
+          <img src="/images/defencegame.png" alt="DefenceGame" />
+        </div>
+
+        <div class="detail-content">
+          <h2>Overview</h2>
+          <p>DefenceGame은 타워 디펜스 게임으로, 4 종류의 타워를 배치하여 적을 방어하는 게임입니다.</p>
+          <p>각 타워는 레벨업이 가능하고, 특수 능력을 해금하여 더 강력한 방어를 할 수 있습니다.</p>
+          
+          <h3>Features</h3>
+          <ul>
+            <li>🎯 Archer Tower - 빠른 공격속도</li>
+            <li>🔮 Mage Tower - 범위 공격</li>
+            <li>⚡ Laser Tower - 고정 데미지</li>
+            <li>🔥 Mage Tower (Fire) - 화염 특수 능력</li>
+          </ul>
+        </div>
+
+        <div class="detail-buttons">
+          <a href="#" class="btn-github">GitHub Repository</a>
+          <a href="#" class="btn-demo">Live Demo</a>
+        </div>
+      </article>
+    </section>
+
     <!-- 비교 섹션 -->
     <section class="compare-section">
       <h2>🔄 Design Comparison</h2>
@@ -317,6 +359,189 @@ const projects = [
 
   .project-card:hover .view-button {
     box-shadow: 0 0 12px rgba(34, 211, 238, 0.25);
+  }
+
+  /* ===== 프로젝트 상세 페이지 ===== */
+  .detail-section {
+    margin-bottom: 2rem;
+  }
+
+  .detail-section h2 {
+    color: #E5E7EB;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Pretendard', sans-serif;
+  }
+
+  .project-detail {
+    background: #111827;
+    border: 1px solid #1F2937;
+    border-radius: 12px;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    color: #9CA3AF;
+    font-size: 0.85rem;
+    transition: color 0.2s ease;
+    font-family: 'Pretendard', sans-serif;
+  }
+
+  .back-link:hover {
+    color: #22D3EE;
+    text-decoration: none;
+  }
+
+  .detail-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #1F2937;
+  }
+
+  .detail-header h1 {
+    color: #E5E7EB;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    font-family: 'Pretendard', sans-serif;
+  }
+
+  .detail-desc {
+    color: #9CA3AF;
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+    font-family: 'Pretendard', sans-serif;
+  }
+
+  .detail-header .dev-period {
+    font-size: 0.875rem;
+    color: #9CA3AF;
+    margin-bottom: 1rem;
+  }
+
+  .detail-header .tech-stack {
+    margin-bottom: 0;
+  }
+
+  .detail-image {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    background: #1F2937;
+  }
+
+  .detail-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .detail-content {
+    background: #0D0D0E;
+    border: 1px solid #1F2937;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .detail-content h2 {
+    color: #E5E7EB;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    font-family: 'Pretendard', sans-serif;
+  }
+
+  .detail-content h3 {
+    color: #E5E7EB;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-family: 'Pretendard', sans-serif;
+  }
+
+  .detail-content p {
+    color: #9CA3AF;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+    font-family: 'Pretendard', sans-serif;
+  }
+
+  .detail-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .detail-content li {
+    color: #9CA3AF;
+    font-size: 0.85rem;
+    padding: 0.5rem 0;
+    padding-left: 1rem;
+    position: relative;
+    font-family: 'Pretendard', sans-serif;
+  }
+
+  .detail-content li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 4px;
+    background: #C084FC;
+    border-radius: 50%;
+  }
+
+  .detail-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-github, .btn-demo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    font-family: 'Pretendard', sans-serif;
+  }
+
+  .btn-github {
+    background: #9333EA;
+    color: #E5E7EB;
+    border: 1px solid transparent;
+  }
+
+  .btn-github:hover {
+    background: rgba(147, 51, 234, 0.9);
+    border-color: rgba(147, 51, 234, 0.6);
+    box-shadow: 0 0 12px rgba(147, 51, 234, 0.25);
+    text-decoration: none;
+  }
+
+  .btn-demo {
+    background: #22D3EE;
+    color: #0D0D0E;
+    border: 1px solid transparent;
+  }
+
+  .btn-demo:hover {
+    background: rgba(34, 211, 238, 0.9);
+    box-shadow: 0 0 12px rgba(34, 211, 238, 0.25);
+    text-decoration: none;
   }
 
   /* ===== 비교 섹션 ===== */
