@@ -189,6 +189,18 @@ const projects = [
           </div>
           <p class="style-desc">그림자 + 그라디언트 + hover 확대 + Cyan 포인트.</p>
         </div>
+
+        <!-- 옵션 7: 복합 + 노이즈 (새 제안) -->
+        <div class="style-option recommended new-idea">
+          <h3>7. 복합 + 노이즈 오버레이 🆕</h3>
+          <div class="preview-wrap option-combined-noise">
+            <div class="combined-bg"></div>
+            <img src="/images/defencegame.png" alt="Combined Noise" />
+            <div class="combined-overlay"></div>
+            <div class="noise-overlay"></div>
+          </div>
+          <p class="style-desc">기본: 노이즈로 가려짐. hover: 선명해짐. 시선 집중 효과.</p>
+        </div>
       </div>
     </section>
 
@@ -658,6 +670,86 @@ const projects = [
     );
     pointer-events: none;
     z-index: 2;
+  }
+
+  /* 옵션 7: 복합 + 노이즈 오버레이 */
+  .option-combined-noise {
+    border: none;
+    position: relative;
+    box-shadow: 
+      0 4px 20px rgba(0, 0, 0, 0.4),
+      0 0 30px rgba(147, 51, 234, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .option-combined-noise:hover {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 
+      0 8px 30px rgba(0, 0, 0, 0.5),
+      0 0 40px rgba(34, 211, 238, 0.2);
+  }
+
+  .option-combined-noise .combined-bg {
+    position: absolute;
+    inset: -1px;
+    border-radius: 9px;
+    background: linear-gradient(135deg, rgba(147, 51, 234, 0.2), transparent, rgba(34, 211, 238, 0.2));
+    z-index: 0;
+  }
+
+  .option-combined-noise img {
+    position: relative;
+    z-index: 1;
+    transition: filter 0.3s ease;
+  }
+
+  .option-combined-noise .combined-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 70%,
+      rgba(13, 13, 14, 0.5) 100%
+    );
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  /* 노이즈 오버레이 - CSS 로 노이즈 패턴 생성 */
+  .option-combined-noise .noise-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(13, 13, 14, 0.6);
+    background-image: 
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.3) 2px,
+        rgba(0, 0, 0, 0.3) 4px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.3) 2px,
+        rgba(0, 0, 0, 0.3) 4px
+      );
+    backdrop-filter: blur(1px);
+    pointer-events: none;
+    z-index: 3;
+    transition: opacity 0.3s ease, backdrop-filter 0.3s ease;
+    opacity: 0.7;
+  }
+
+  .option-combined-noise:hover .noise-overlay {
+    opacity: 0;
+    backdrop-filter: blur(0);
+  }
+
+  .option-combined-noise:hover img {
+    filter: brightness(1.05);
   }
 
   /* ===== 프로젝트 상세 페이지 ===== */
