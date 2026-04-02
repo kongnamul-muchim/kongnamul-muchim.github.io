@@ -179,27 +179,15 @@ const projects = [
           <p class="style-desc">이미지 주변에 Purple/Cyan 요소로 포인트.</p>
         </div>
 
-        <!-- 옵션 6: 복합 (추천) -->
-        <div class="style-option recommended">
-          <h3>6. 복합 (추천) ⭐</h3>
-          <div class="preview-wrap option-combined">
-            <div class="combined-bg"></div>
-            <img src="/images/defencegame.png" alt="Combined" />
-            <div class="combined-overlay"></div>
-          </div>
-          <p class="style-desc">그림자 + 그라디언트 + hover 확대 + Cyan 포인트.</p>
-        </div>
-
-        <!-- 옵션 7: 복합 + 노이즈 (새 제안) -->
+<!-- 옵션 6: 복합 + 어두운 오버레이 (새 제안) -->
         <div class="style-option recommended new-idea">
-          <h3>7. 복합 + 노이즈 오버레이 🆕</h3>
-          <div class="preview-wrap option-combined-noise">
+          <h3>6. 복합 + 어두운 오버레이 🆕</h3>
+          <div class="preview-wrap option-combined-dark">
             <div class="combined-bg"></div>
-            <img src="/images/defencegame.png" alt="Combined Noise" />
-            <div class="combined-overlay"></div>
-            <div class="noise-overlay"></div>
+            <img src="/images/defencegame.png" alt="Combined Dark" />
+            <div class="dark-overlay"></div>
           </div>
-          <p class="style-desc">기본: 노이즈로 가려짐. hover: 선명해짐. 시선 집중 효과.</p>
+          <p class="style-desc">기본: 어둡게 가려짐. hover: 선명해지며 Cyan glow. 배경과 자연스럽게 동화.</p>
         </div>
       </div>
     </section>
@@ -672,8 +660,8 @@ const projects = [
     z-index: 2;
   }
 
-  /* 옵션 7: 복합 + 노이즈 오버레이 */
-  .option-combined-noise {
+  /* 옵션 6: 복합 + 어두운 오버레이 */
+  .option-combined-dark {
     border: none;
     position: relative;
     box-shadow: 
@@ -683,14 +671,14 @@ const projects = [
     cursor: pointer;
   }
 
-  .option-combined-noise:hover {
+  .option-combined-dark:hover {
     transform: translateY(-2px) scale(1.01);
     box-shadow: 
       0 8px 30px rgba(0, 0, 0, 0.5),
-      0 0 40px rgba(34, 211, 238, 0.2);
+      0 0 40px rgba(34, 211, 238, 0.25);
   }
 
-  .option-combined-noise .combined-bg {
+  .option-combined-dark .combined-bg {
     position: absolute;
     inset: -1px;
     border-radius: 9px;
@@ -698,58 +686,27 @@ const projects = [
     z-index: 0;
   }
 
-  .option-combined-noise img {
+  .option-combined-dark img {
     position: relative;
     z-index: 1;
-    transition: filter 0.3s ease;
+    transition: filter 0.3s ease, transform 0.3s ease;
   }
 
-  .option-combined-noise .combined-overlay {
+  .option-combined-dark .dark-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      to bottom,
-      transparent 70%,
-      rgba(13, 13, 14, 0.5) 100%
-    );
+    background: rgba(13, 13, 14, 0.65);
+    transition: all 0.3s ease;
     pointer-events: none;
     z-index: 2;
   }
 
-  /* 노이즈 오버레이 - CSS 로 노이즈 패턴 생성 */
-  .option-combined-noise .noise-overlay {
-    position: absolute;
-    inset: 0;
-    background-color: rgba(13, 13, 14, 0.6);
-    background-image: 
-      repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 2px,
-        rgba(0, 0, 0, 0.3) 2px,
-        rgba(0, 0, 0, 0.3) 4px
-      ),
-      repeating-linear-gradient(
-        90deg,
-        transparent,
-        transparent 2px,
-        rgba(0, 0, 0, 0.3) 2px,
-        rgba(0, 0, 0, 0.3) 4px
-      );
-    backdrop-filter: blur(1px);
-    pointer-events: none;
-    z-index: 3;
-    transition: opacity 0.3s ease, backdrop-filter 0.3s ease;
-    opacity: 0.7;
+  .option-combined-dark:hover .dark-overlay {
+    background: rgba(13, 13, 14, 0.1);
   }
 
-  .option-combined-noise:hover .noise-overlay {
-    opacity: 0;
-    backdrop-filter: blur(0);
-  }
-
-  .option-combined-noise:hover img {
-    filter: brightness(1.05);
+  .option-combined-dark:hover img {
+    filter: brightness(1.1);
   }
 
   /* ===== 프로젝트 상세 페이지 ===== */
