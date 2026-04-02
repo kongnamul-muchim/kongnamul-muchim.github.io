@@ -10,7 +10,7 @@ technologies:
   - SOLID Architecture
   - Vercel
 github: https://github.com/kongnamul-muchim/MiniGameCollection
-demo: https://minigame-collection.vercel.app
+demo: https://mini-game-collection-five.vercel.app/
 featured: true
 devPeriod: "2026-03-15 ~ 2026-04-02"
 ---
